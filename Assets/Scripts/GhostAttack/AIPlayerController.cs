@@ -17,6 +17,7 @@ public class AIPlayerController : MonoBehaviour
     private AIDestinationSetter aiDestinationSetter;
     private float timer;
     private Vector3 lastPosition;
+
     private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,27 +28,39 @@ public class AIPlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Tính khoảng cách giữa vị trí hiện tại của player và mục tiêu
-        float distance = Vector2.Distance(transform.position, currentDestination);
-        // Nếu khoảng cách nhỏ hơn 0.1, tạo mục tiêu mới
-        if (distance < 3f)
+
+        if (aiDestinationSetter.target == null)
         {
             SetDestination();
         }
 
         FindAnotherWay();
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enviroment")||collision.transform.CompareTag("Player"))
+            SetDestination();
+    }
     private void FindAnotherWay()
     {
         timer += Time.deltaTime;
 
-        if (timer >= 0.025f)
+        if (timer >= 0.5f)
         {
-            if (lastPosition == transform.position)
+            int x1 = Mathf.FloorToInt(lastPosition.x);
+            int y1 = Mathf.FloorToInt(lastPosition.y);
+            int z1 = Mathf.FloorToInt(lastPosition.z);
+
+            int x2 = Mathf.FloorToInt(transform.position.x);
+            int y2 = Mathf.FloorToInt(transform.position.y);
+            int z2 = Mathf.FloorToInt(transform.position.z);
+
+            if (x1 != x2 || y1 != y2 || z1 != z2)
             {
+                Debug.Log("newpos");
                 SetDestination();
             }
+
             timer = 0;
             lastPosition = transform.position;
         }
@@ -68,7 +81,4 @@ public class AIPlayerController : MonoBehaviour
         // Xóa pointPrefab sau khi đã đặt mục tiêu
         Destroy(newPoint, 2f);
     }
-
-    
-
 }

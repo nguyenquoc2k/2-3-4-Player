@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 0}
   moveSpeed: 120
+  machineControlled: 1
 --- !u!1 &4148517299568008169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 0}
   moveSpeed: 120
+  machineControlled: 1
 --- !u!1 &4262331458622914253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 0}
   moveSpeed: 120
+  machineControlled: 1
 --- !u!1 &5803659299073955995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 0}
   moveSpeed: 120
+  machineControlled: 0
 --- !u!1 &6465400930681032864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2067,7 @@ MonoBehaviour:
   Player3: {fileID: 4262331458622914253}
   Player4: {fileID: 4148517299568008169}
   listPlayer: []
+  listPlayerAndGhost: []
   parentListPlayer: {fileID: 4563233749996492193}
   showResultGameDemo: {fileID: 0}
   wallController: {fileID: 8547898892776936654}

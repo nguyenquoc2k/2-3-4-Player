@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShowResultGameDemo : MonoBehaviour
 {
+    public static ShowResultGameDemo Instances;
     public GameObject winner1, winner2, winner3, winner4, menu;
     public Transform parentCoreGame;
     [SerializeField] private GameObject map1,map2,map3;
@@ -12,6 +13,7 @@ public class ShowResultGameDemo : MonoBehaviour
     public SelectMapGameDemo selectMapGameDemo;
     private void Awake()
     {
+        Instances = this;
         menu.SetActive(false);
     }
 

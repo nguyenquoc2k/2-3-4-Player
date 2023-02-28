@@ -45,7 +45,7 @@ public class AIPlayerController : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 0.5f)
+        if (timer >= 0.25f)
         {
             int x1 = Mathf.FloorToInt(lastPosition.x);
             int y1 = Mathf.FloorToInt(lastPosition.y);
@@ -68,6 +68,7 @@ public class AIPlayerController : MonoBehaviour
 
     private void SetDestination()
     {
+        if(pointPrefab==null) return;
         float x = Random.Range(-Camera.main.orthographicSize * Camera.main.aspect,
             Camera.main.orthographicSize * Camera.main.aspect);
         float y = Random.Range(-Camera.main.orthographicSize, Camera.main.orthographicSize);
@@ -79,6 +80,6 @@ public class AIPlayerController : MonoBehaviour
         currentDestination = newPoint.transform.position;
         aiDestinationSetter.target = newPoint.transform;
         // Xóa pointPrefab sau khi đã đặt mục tiêu
-        Destroy(newPoint, 2f);
+        Destroy(newPoint, 5f);
     }
 }

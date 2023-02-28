@@ -18,7 +18,6 @@ public class GameDemoManager : MonoBehaviour
     public GameObject Player1, Player2, Player3, Player4;
     public List<GameObject> listPlayer;
     [SerializeField] private Transform parentListPlayer;
-    public ShowResultGameDemo showResultGameDemo;
     private Transform parentTransform;
     private bool joystick1Status, joystick2Status, joystick3Status, joystick4Status;
     public WallController wallController;
@@ -29,9 +28,7 @@ public class GameDemoManager : MonoBehaviour
         Instances = this;
         Transform transform = GameObject.Find("PathFinding").transform;
         astarPath = transform.GetComponent<AstarPath>();
-        Transform showResult = GameObject.Find("ShowResult").transform;
-        showResultGameDemo = showResult.GetComponent<ShowResultGameDemo>();
-        showResultGameDemo.gameObject.SetActive(false);
+        ShowResultGameDemo.Instances.gameObject.SetActive(false);
         astarPath.Scan();
         Invoke("InitGhost", 2f);
         AddPlayerToList();
@@ -141,8 +138,8 @@ public class GameDemoManager : MonoBehaviour
         if (listPlayer.Count == 1)
         {
             if (wallController != null) wallController.DestroyWall();
-            showResultGameDemo.gameObject.SetActive(true);
-            showResultGameDemo.ShowResult(listPlayer[0].name);
+            ShowResultGameDemo.Instances.gameObject.SetActive(true);
+            ShowResultGameDemo.Instances.ShowResult(listPlayer[0].name);
         }
     }
 
@@ -225,5 +222,6 @@ public class GameDemoManager : MonoBehaviour
         ghost.transform.position = Vector3.zero;
         ghost.transform.SetParent(parentListPlayer);
         ghost.transform.localScale = new Vector3(scaleSpawn, scaleSpawn, scaleSpawn);
+        ghost.transform.localPosition = new Vector3(0, 0, 0);
     }
 }

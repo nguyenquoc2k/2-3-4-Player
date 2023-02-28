@@ -65,9 +65,8 @@ public class GhostInGameDemoManager : MonoBehaviour
             return;
         }
         transform.position = Vector2.MoveTowards(transform.position, targetObject.position, Time.deltaTime);
-        Vector2 lookDir = targetObject.transform.position - transform.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        GetComponent<Rigidbody2D>().rotation = angle;
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetObject.position - transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 5 * Time.deltaTime);
     }
 
     public void AddPlayer(Transform player)

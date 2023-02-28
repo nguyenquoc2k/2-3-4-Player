@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enviroment
+  - Dash
+  - Spawn
+  - Trap
+  - Jump
+  - OverpassTrigger
+  - UnderpassTrigger
+  - OverpassCollider
+  - UnderpassCollider
+  - Checkpoint
+  - AI
+  - Undefined
+  - Portal
+  - Shield
+  - Ball
+  - ShotZone
+  - GoalLine
+  - AreaLimited
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enviroment
+  - Checkpoint
+  - Bullet
+  - Shield
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1815082073
+    locked: 0
+  - name: RaceTrack
+    uniqueID: 1882523109
+    locked: 0
+  - name: Skidmarks
+    uniqueID: 3001471051
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: RaceTrackOverpass
+    uniqueID: 3823839655
+    locked: 0
+  - name: Particle
+    uniqueID: 4053465123
+    locked: 0

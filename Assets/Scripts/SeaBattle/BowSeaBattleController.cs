@@ -5,96 +5,104 @@ using UnityEngine;
 
 public class BowSeaBattleController : MonoBehaviour
 {
-    private bool canRotate = false;
-    public GameObject BowString;
-    private LineRenderer bowStringLineRenderer1;
-    private LineRenderer bowStringLineRenderer2;
-    public GameObject TopAnchor;
-    public GameObject BottomAnchor;
-    private bool drawingBow;
-    private Vector3 bowStringStartPos;
-    private float drawDistance = 0f;
-    private float startAngle;
-    private Vector3 topAnchorStartPos;
-    public float MaxDrawDistance = 2f;
-    public float DrawSpeed = 2f;
-    public GameObject BowShaft;
-    private GameObject currentArrow;
-    private void Start()
-    {
-        // assign component references for fast use later
-        bowStringLineRenderer1 = BowString.transform.GetChild(0).GetComponent<LineRenderer>();
-        bowStringLineRenderer2 = BowString.transform.GetChild(1).GetComponent<LineRenderer>();
-        RenderBowString(Vector3.zero);
-        //startAngle = BowShaft.transform.eulerAngles.z;
-        startAngle = BowShaft.transform.eulerAngles.z;
-       
-        
-    }
+    [SerializeField] float fireCountdown = 1f;
+    [SerializeField] float rotationTime;
+    [SerializeField] FixedJoystick Joystick;
+    [SerializeField] Rigidbody2D bullet;
+    [SerializeField] Transform bulletSpawn;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] Transform towerAxis;
+    [SerializeField] GameObject bulletDestroyEffect;
 
-    private void OnMouseDown()
+    [SerializeField] Animator anim;
+
+    bool fireReady = true;
+    bool dragTowerInLastFrame = false;
+
+
+    private void Awake()
     {
-    
-        if (gameObject.CompareTag("Player"))
+        Transform parentTransform = UIInGameController.Instances.transform;
+        if (transform.name == "Player1")
         {
-            canRotate = true;
+            Joystick = parentTransform.GetChild(0).GetComponent<FixedJoystick>();
+            HandleJoystick();
+            parentTransform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector3(490, 265, 10);
+        }
+        else if (transform.name == "Player2")
+        {
+            Joystick = parentTransform.GetChild(1).GetComponent<FixedJoystick>();
+            HandleJoystick();
+        }
+        else if (transform.name == "Player3")
+        {
+            Joystick = parentTransform.GetChild(2).GetComponent<FixedJoystick>();
+            HandleJoystick();
+        }
+        else if (transform.name == "Player4")
+        {
+            Joystick = parentTransform.GetChild(3).GetComponent<FixedJoystick>();
+            HandleJoystick();
         }
     }
 
-    private void OnMouseUp()
+    void HandleJoystick()
     {
-        canRotate = false;
+        Joystick.gameObject.SetActive(true);
+        Joystick.transform.position = Camera.main.WorldToScreenPoint(transform.position);
     }
 
     private void Update()
     {
-        if (canRotate)
+        if (Joystick.Direction.magnitude > 0.1f)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            Vector2 direction = new Vector2(mousePosition.x - transform.position.x,
-                mousePosition.y - transform.position.y);
-            transform.up = direction;
-            if (Input.GetMouseButton(0))
+            float angle = Mathf.Atan2(Joystick.Direction.y, Joystick.Direction.x) * Mathf.Rad2Deg;
+            towerAxis.rotation = Quaternion.Lerp(Quaternion.Euler(new Vector3(0, 0, angle)), towerAxis.rotation,
+                rotationTime);
+
+            if (!dragTowerInLastFrame && fireReady)
             {
-                BeginBowDraw();
+                //AudioManagerBattleSea.instance.Play(AudioManagerBattleSea.instance.pullString);
+                dragTowerInLastFrame = true;
+                anim.Play("BlueReload");
             }
         }
         else
         {
-            drawingBow = false;
-            drawDistance = 0f;
-            TopAnchor.transform.position = topAnchorStartPos;
+            if (dragTowerInLastFrame && fireReady) //shoot
+            {
+                // AudioManagerBattleSea.instance.Play(AudioManagerBattleSea.instance.shootBullet);
 
-            RenderBowString(Vector3.zero);
+                bullet.transform.position = bulletSpawn.position;
+                bullet.gameObject.SetActive(true);
+                bullet.velocity = -towerAxis.right * bulletSpeed;
+
+                fireReady = false;
+                StartCoroutine(DisableBullet());
+                StartCoroutine(ReloadBullet());
+
+
+                dragTowerInLastFrame = false;
+                anim.Play("BlueShoot");
+            }
         }
     }
 
-    private void BeginBowDraw()
+    IEnumerator DisableBullet()
     {
-        //Vector3 pos = GetArrowPositionForDraw();
-       // currentArrow.transform.position = pos;
-       // drawingBow = true;
+        yield return new WaitForSeconds(1.2f);
+
+        if (bullet.gameObject.activeSelf)
+        {
+            //AudioManagerBattleSea.instance.Play(AudioManagerBattleSea.instance.hitWater);
+            //Instantiate(bulletDestroyEffect, bullet.transform.position, Quaternion.identity);
+            bullet.gameObject.SetActive(false);
+        }
     }
 
-    private void RenderBowString(Vector3 arrowPos)
+    IEnumerator ReloadBullet()
     {
-        Vector3 startPoint = TopAnchor.transform.position;
-        Vector3 endPoint = BottomAnchor.transform.position;
-
-        if (drawingBow)
-        {
-            bowStringLineRenderer2.gameObject.SetActive(true);
-            bowStringLineRenderer1.SetPosition(0, startPoint);
-            bowStringLineRenderer1.SetPosition(1, arrowPos);
-            bowStringLineRenderer2.SetPosition(0, arrowPos);
-            bowStringLineRenderer2.SetPosition(1, endPoint);
-        }
-        else
-        {
-            bowStringLineRenderer2.gameObject.SetActive(false);
-            bowStringLineRenderer1.SetPosition(0, startPoint);
-            bowStringLineRenderer1.SetPosition(1, endPoint);
-        }
+        yield return new WaitForSeconds(fireCountdown);
+        fireReady = true;
     }
 }

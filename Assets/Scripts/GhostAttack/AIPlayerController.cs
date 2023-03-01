@@ -45,7 +45,7 @@ public class AIPlayerController : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 0.25f)
+        if (timer >= 2f)
         {
             int x1 = Mathf.FloorToInt(lastPosition.x);
             int y1 = Mathf.FloorToInt(lastPosition.y);
@@ -58,7 +58,7 @@ public class AIPlayerController : MonoBehaviour
             if (x1 != x2 || y1 != y2 || z1 != z2)
             {
                 Debug.Log("newpos");
-                SetDestination();
+                //SetDestination();
             }
 
             timer = 0;

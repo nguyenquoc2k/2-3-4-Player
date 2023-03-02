@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BowSeaBattleController : MonoBehaviour
 {
-    [SerializeField] float fireCountdown = 1f;
-    [SerializeField] float rotationTime;
+    float fireCountdown = 2f;
+    private float rotationTime = 0.6f;
     [SerializeField] FixedJoystick Joystick;
-    [SerializeField] Rigidbody2D bullet;
+    Rigidbody2D bullet;
     [SerializeField] Transform bulletSpawn;
-    [SerializeField] float bulletSpeed;
+    float bulletSpeed = 10;
     [SerializeField] Transform towerAxis;
     [SerializeField] GameObject bulletDestroyEffect;
 
@@ -22,27 +22,39 @@ public class BowSeaBattleController : MonoBehaviour
 
     private void Awake()
     {
+        bulletSpawn = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(3);
+        towerAxis = transform.GetChild(0).GetChild(0);
+        anim = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Animator>();
+        
+
         Transform parentTransform = UIInGameController.Instances.transform;
         if (transform.name == "Player1")
         {
             Joystick = parentTransform.GetChild(0).GetComponent<FixedJoystick>();
             HandleJoystick();
-            parentTransform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector3(490, 265, 10);
+            parentTransform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector3(230, 265, 10);
+            bullet = FindObjectOfType<BulletHolderSeaBattle>().transform.GetChild(0).GetComponent<Rigidbody2D>();
         }
         else if (transform.name == "Player2")
         {
             Joystick = parentTransform.GetChild(1).GetComponent<FixedJoystick>();
             HandleJoystick();
+            parentTransform.GetChild(1).GetComponent<RectTransform>().anchoredPosition = new Vector3(230, -215, 10);
+            bullet = FindObjectOfType<BulletHolderSeaBattle>().transform.GetChild(1).GetComponent<Rigidbody2D>();
         }
         else if (transform.name == "Player3")
         {
             Joystick = parentTransform.GetChild(2).GetComponent<FixedJoystick>();
             HandleJoystick();
+            parentTransform.GetChild(2).GetComponent<RectTransform>().anchoredPosition = new Vector3(-240, -215, 10);
+            bullet = FindObjectOfType<BulletHolderSeaBattle>().transform.GetChild(2).GetComponent<Rigidbody2D>();
         }
         else if (transform.name == "Player4")
         {
             Joystick = parentTransform.GetChild(3).GetComponent<FixedJoystick>();
             HandleJoystick();
+            parentTransform.GetChild(3).GetComponent<RectTransform>().anchoredPosition = new Vector3(-240, 265, 10);
+            bullet = FindObjectOfType<BulletHolderSeaBattle>().transform.GetChild(3).GetComponent<Rigidbody2D>();
         }
     }
 

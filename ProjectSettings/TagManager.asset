@@ -22,6 +22,7 @@ TagManager:
   - ShotZone
   - GoalLine
   - AreaLimited
+  - bullet
   layers:
   - Default
   - TransparentFX

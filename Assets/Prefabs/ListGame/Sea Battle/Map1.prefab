@@ -55186,10 +55186,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenBullet
       objectReference: {fileID: 0}
-    - target: {fileID: 5322943233512779745, guid: bd3178ee3b552084aaf76be83deab0b9, type: 3}
-      propertyPath: m_TagString
-      value: bullet
-      objectReference: {fileID: 0}
     - target: {fileID: 5322943233512779746, guid: bd3178ee3b552084aaf76be83deab0b9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -55257,10 +55253,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBullet
       objectReference: {fileID: 0}
-    - target: {fileID: 5322943233512779745, guid: c022d3d7639818548980d89e380f9309, type: 3}
-      propertyPath: m_TagString
-      value: bullet
-      objectReference: {fileID: 0}
     - target: {fileID: 5322943233512779746, guid: c022d3d7639818548980d89e380f9309, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -55327,10 +55319,6 @@ PrefabInstance:
     - target: {fileID: 5322943233512779745, guid: efbbc95ae5a443d48b979e3097c848e5, type: 3}
       propertyPath: m_Name
       value: YellowBullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 5322943233512779745, guid: efbbc95ae5a443d48b979e3097c848e5, type: 3}
-      propertyPath: m_TagString
-      value: bullet
       objectReference: {fileID: 0}
     - target: {fileID: 5322943233512779746, guid: efbbc95ae5a443d48b979e3097c848e5, type: 3}
       propertyPath: m_RootOrder

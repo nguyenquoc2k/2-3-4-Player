@@ -60,7 +60,7 @@ public class BowSeaBattleController : MonoBehaviour
 
     void HandleJoystick()
     {
-        Joystick.gameObject.SetActive(true);
+        //Joystick.gameObject.SetActive(true);
         Joystick.transform.position = Camera.main.WorldToScreenPoint(transform.position);
     }
 

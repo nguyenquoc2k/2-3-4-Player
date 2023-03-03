@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routes:
   - {fileID: 0}
-  indexShip: 0
+  indexShip: 3
 --- !u!1 &2587579904370479330
 GameObject:
   m_ObjectHideFlags: 0

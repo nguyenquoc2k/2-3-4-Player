@@ -47,15 +47,21 @@ public class GameDemoManager : MonoBehaviour
                 Player2.GetComponent<AIPlayerController>().enabled = true;
                 Player2.GetComponent<AIPath>().enabled = true;
                 Player2.GetComponent<AIDestinationSetter>().enabled = true;
+                Player2.GetComponent<Rigidbody2D>().freezeRotation = false;
+                
                 Player3.GetComponent<HumanCharacterGhostAttack>().enabled = false;
                 Player3.GetComponent<AIPlayerController>().enabled = true;
                 Player3.GetComponent<AIPath>().enabled = true;
                 Player3.GetComponent<AIDestinationSetter>().enabled = true;
+                Player3.GetComponent<Rigidbody2D>().freezeRotation = false;
+                
                 Player4.GetComponent<HumanCharacterGhostAttack>().enabled = false;
                 Player4.GetComponent<AIPlayerController>().enabled = true;
                 Player4.GetComponent<AIPath>().enabled = true;
                 Player4.GetComponent<AIDestinationSetter>().enabled = true;
+                Player4.GetComponent<Rigidbody2D>().freezeRotation = false;
                 joystick1Status = true;
+                
             }
 
             if (joystick.gameObject.activeInHierarchy && joystick.name == "FixedJoystick1")
@@ -64,14 +70,19 @@ public class GameDemoManager : MonoBehaviour
                 Player2.GetComponent<AIPlayerController>().enabled = false;
                 Player2.GetComponent<AIPath>().enabled = false;
                 Player2.GetComponent<AIDestinationSetter>().enabled = false;
+                Player2.GetComponent<Rigidbody2D>().freezeRotation = true;
+                
                 Player3.GetComponent<HumanCharacterGhostAttack>().enabled = false;
                 Player3.GetComponent<AIPlayerController>().enabled = true;
                 Player3.GetComponent<AIPath>().enabled = true;
                 Player3.GetComponent<AIDestinationSetter>().enabled = true;
+                Player3.GetComponent<Rigidbody2D>().freezeRotation = false;
+                
                 Player4.GetComponent<HumanCharacterGhostAttack>().enabled = false;
                 Player4.GetComponent<AIPlayerController>().enabled = true;
                 Player4.GetComponent<AIPath>().enabled = true;
                 Player4.GetComponent<AIDestinationSetter>().enabled = true;
+                Player4.GetComponent<Rigidbody2D>().freezeRotation = false;
                 joystick2Status = true;
             }
 
@@ -81,14 +92,19 @@ public class GameDemoManager : MonoBehaviour
                 Player2.GetComponent<AIPlayerController>().enabled = false;
                 Player2.GetComponent<AIPath>().enabled = false;
                 Player2.GetComponent<AIDestinationSetter>().enabled = false;
+                Player2.GetComponent<Rigidbody2D>().freezeRotation = true;
+                
                 Player3.GetComponent<HumanCharacterGhostAttack>().enabled = true;
                 Player3.GetComponent<AIPlayerController>().enabled = false;
                 Player3.GetComponent<AIPath>().enabled = false;
                 Player3.GetComponent<AIDestinationSetter>().enabled = false;
+                Player3.GetComponent<Rigidbody2D>().freezeRotation = true;
+                
                 Player4.GetComponent<HumanCharacterGhostAttack>().enabled = false;
                 Player4.GetComponent<AIPlayerController>().enabled = true;
                 Player4.GetComponent<AIPath>().enabled = true;
                 Player4.GetComponent<AIDestinationSetter>().enabled = true;
+                Player4.GetComponent<Rigidbody2D>().freezeRotation = false;
                 joystick3Status = true;
             }
 
@@ -98,14 +114,19 @@ public class GameDemoManager : MonoBehaviour
                 Player2.GetComponent<AIPlayerController>().enabled = false;
                 Player2.GetComponent<AIPath>().enabled = false;
                 Player2.GetComponent<AIDestinationSetter>().enabled = false;
+                Player2.GetComponent<Rigidbody2D>().freezeRotation = true;
+                
                 Player3.GetComponent<HumanCharacterGhostAttack>().enabled = true;
                 Player3.GetComponent<AIPlayerController>().enabled = false;
                 Player3.GetComponent<AIPath>().enabled = false;
                 Player3.GetComponent<AIDestinationSetter>().enabled = false;
+                Player3.GetComponent<Rigidbody2D>().freezeRotation = true;
+                
                 Player4.GetComponent<HumanCharacterGhostAttack>().enabled = true;
                 Player4.GetComponent<AIPlayerController>().enabled = false;
                 Player4.GetComponent<AIPath>().enabled = false;
                 Player4.GetComponent<AIDestinationSetter>().enabled = false;
+                Player4.GetComponent<Rigidbody2D>().freezeRotation = true;
                 joystick4Status = true;
             }
         }

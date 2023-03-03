@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ShipBattleSea : MonoBehaviour
 {
-    
     public Transform[] routes;
 
     private int routeToGo;
@@ -20,7 +19,12 @@ public class ShipBattleSea : MonoBehaviour
     private bool coroutineAllowed;
 
     public static event Action<int> ShipDestroyed;
-    public int indexShip;
+
+    public static event Action<int, int> IncreaseScoreBattleSeaPlayer;
+
+
+    public int indexShip,indexShip2;
+
     void Start()
     {
         routeToGo = 0;
@@ -29,12 +33,16 @@ public class ShipBattleSea : MonoBehaviour
         coroutineAllowed = true;
     }
 
+    public void SetIndexShip(int id)
+    {
+        indexShip2 = id;
+    }
     // Update is called once per frame
     void Update()
     {
         if (coroutineAllowed)
         {
-             StartCoroutine(GoByTheRoute(routeToGo));
+            StartCoroutine(GoByTheRoute(routeToGo));
         }
     }
 
@@ -42,8 +50,21 @@ public class ShipBattleSea : MonoBehaviour
     {
         if (other.CompareTag("bullet"))
         {
+            DispatchEventScore(other.GetComponent<BulletSeaBattle>().indexBullet,indexShip);
             other.gameObject.gameObject.SetActive(false);
             DestroyAndDispatchEvent();
+        }
+    }
+
+    private void DispatchEventScore(int idBow, int idShip)
+    {
+        if (idBow == idShip)
+        {
+            IncreaseScoreBattleSeaPlayer?.Invoke(idBow, -1);
+        }
+        else
+        {
+            IncreaseScoreBattleSeaPlayer?.Invoke(idBow, 1);
         }
     }
 
@@ -56,11 +77,12 @@ public class ShipBattleSea : MonoBehaviour
         Vector2 p2 = routes[routeNum].GetChild(2).position;
         Vector2 p3 = routes[routeNum].GetChild(3).position;
 
-        while(tParam < 1)
+        while (tParam < 1)
         {
             tParam += Time.deltaTime * speedModifier;
 
-            objectPosition = Mathf.Pow(1 - tParam, 3) * p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 + 3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 + Mathf.Pow(tParam, 3) * p3;
+            objectPosition = Mathf.Pow(1 - tParam, 3) * p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 +
+                             3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 + Mathf.Pow(tParam, 3) * p3;
 
             transform.position = objectPosition;
             yield return new WaitForEndOfFrame();
@@ -70,7 +92,7 @@ public class ShipBattleSea : MonoBehaviour
 
         routeToGo += 1;
 
-        if(routeToGo > routes.Length - 1)
+        if (routeToGo > routes.Length - 1)
         {
             DestroyAndDispatchEvent();
         }
@@ -80,8 +102,7 @@ public class ShipBattleSea : MonoBehaviour
 
     void DestroyAndDispatchEvent()
     {
-        ShipDestroyed?.Invoke(indexShip);
+        ShipDestroyed?.Invoke(indexShip2);
         Destroy(gameObject);
     }
-
 }

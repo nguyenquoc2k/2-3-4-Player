@@ -28,7 +28,6 @@ public class AIPlayerController : MonoBehaviour
 
     private void Update()
     {
-
         if (aiDestinationSetter.target == null)
         {
             SetDestination();
@@ -36,11 +35,13 @@ public class AIPlayerController : MonoBehaviour
 
         FindAnotherWay();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Enviroment")||collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Enviroment") || collision.transform.CompareTag("Player"))
             SetDestination();
     }
+
     private void FindAnotherWay()
     {
         timer += Time.deltaTime;
@@ -68,7 +69,7 @@ public class AIPlayerController : MonoBehaviour
 
     private void SetDestination()
     {
-        if(pointPrefab==null) return;
+        if (pointPrefab == null) return;
         float x = Random.Range(-Camera.main.orthographicSize * Camera.main.aspect,
             Camera.main.orthographicSize * Camera.main.aspect);
         float y = Random.Range(-Camera.main.orthographicSize, Camera.main.orthographicSize);
@@ -78,7 +79,7 @@ public class AIPlayerController : MonoBehaviour
         GameObject newPoint = Instantiate(pointPrefab, randomPoint, Quaternion.identity);
         // Đặt mục tiêu mới cho player
         currentDestination = newPoint.transform.position;
-        aiDestinationSetter.target = newPoint.transform;
+        if (aiDestinationSetter != null) aiDestinationSetter.target = newPoint.transform;
         // Xóa pointPrefab sau khi đã đặt mục tiêu
         Destroy(newPoint, 5f);
     }

@@ -8,41 +8,9 @@ public class SeaBattleController : MonoBehaviour
 
     void Awake()
     {
-        Invoke("HandleJoystickPlayer", 0.1f);
         Invoke("HandleComponentPlayer", 0.2f);
     }
-
-    void HandleJoystickPlayer()
-    {
-        if (SelectAmountPlayer.Instances.option1 == true)
-        {
-            SelectAmountPlayer.Instances.Joystick1.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick2.SetActive(false);
-            SelectAmountPlayer.Instances.Joystick3.SetActive(false);
-            SelectAmountPlayer.Instances.Joystick4.SetActive(false);
-        }
-        else if (SelectAmountPlayer.Instances.option2 == true)
-        {
-            SelectAmountPlayer.Instances.Joystick1.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick2.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick3.SetActive(false);
-            SelectAmountPlayer.Instances.Joystick4.SetActive(false);
-        }
-        else if (SelectAmountPlayer.Instances.option3 == true)
-        {
-            SelectAmountPlayer.Instances.Joystick1.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick2.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick3.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick4.SetActive(false);
-        }
-        else if (SelectAmountPlayer.Instances.option4 == true)
-        {
-            SelectAmountPlayer.Instances.Joystick1.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick2.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick3.SetActive(true);
-            SelectAmountPlayer.Instances.Joystick4.SetActive(true);
-        }
-    }
+    
     private void HandleComponentPlayer()
     {
         foreach (Transform button in UIInGameController.Instances.transform)

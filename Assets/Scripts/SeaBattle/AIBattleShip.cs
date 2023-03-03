@@ -59,12 +59,15 @@ public class AIBattleShip : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(timeAim.x, timeAim.y));
 
             //if (!ScoreManagerBattleSea.instance.isInGame) yield break;
-            foreach (var ship in shipsCanReach)
+            if (shipsCanReach.Count > 0)
             {
-                if (ship.gameObject.activeSelf)
+                foreach (var ship in shipsCanReach)
                 {
-                    yield return StartCoroutine(ShootProcess(ship));
-                    break;
+                    if (ship.gameObject.activeSelf)
+                    {
+                        yield return StartCoroutine(ShootProcess(ship));
+                        break;
+                    }
                 }
             }
         }

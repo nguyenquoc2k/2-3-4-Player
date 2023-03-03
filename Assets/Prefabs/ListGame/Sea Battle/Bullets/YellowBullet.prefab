@@ -4930,9 +4930,10 @@ GameObject:
   - component: {fileID: 5322943233512779756}
   - component: {fileID: 5322943233512779747}
   - component: {fileID: 5322943233512779757}
+  - component: {fileID: 6420628289866628900}
   m_Layer: 0
   m_Name: YellowBullet
-  m_TagString: ball
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5043,3 +5044,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6420628289866628900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322943233512779745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8e2f9f802971a4886288144d2da903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexBullet: 2

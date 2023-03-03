@@ -25,7 +25,7 @@ public class SpawnLaneBattleSea : MonoBehaviour
     {
         int index = Random.Range(0, ships.Count);
         shipBattleSea = Instantiate(ships[index], transform.position, Quaternion.identity);
-        shipBattleSea.indexShip = indexSpawnLane;
+        shipBattleSea.SetIndexShip(indexSpawnLane);
         shipBattleSea.routes[0] = route.transform;
         shipBattleSea.transform.SetParent(parentSpawn);
         if (isTop) shipBattleSea.transform.localRotation = Quaternion.Euler(0, 0, -90);

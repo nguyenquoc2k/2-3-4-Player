@@ -5438,6 +5438,10 @@ MonoBehaviour:
   Joystick2: {fileID: 3185633478289293175}
   Joystick3: {fileID: 1861146070474423917}
   Joystick4: {fileID: 3707269502042845429}
+  option1: 0
+  option2: 0
+  option3: 0
+  option4: 0
 --- !u!1 &8795781278857932437
 GameObject:
   m_ObjectHideFlags: 0

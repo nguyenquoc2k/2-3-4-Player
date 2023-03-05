@@ -56,6 +56,7 @@ public class CanonBattleSea : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(timeAim.x, timeAim.y));
+           
 
 
             for (int i = 0; i < boats.Count; i++)
@@ -68,6 +69,22 @@ public class CanonBattleSea : MonoBehaviour
             }
 
             
+        }
+    }
+
+    private void UpdateBoatsPositions()
+    {
+        for (int i = 0; i < boats.Count; i++)
+        {
+            if (boats[i] != null)
+            {
+                // Cập nhật vị trí của phần tử trong boats tại vị trí i
+                Vector3 currentPosition = boats[i].position;
+                currentPosition.x += 1f;
+                currentPosition.y += 2f;
+                currentPosition.z += 3f;
+                boats[i].position = currentPosition;
+            }
         }
     }
 
@@ -87,6 +104,7 @@ public class CanonBattleSea : MonoBehaviour
             }
             else
             {
+                Debug.Log(force.position);
                 Vector2 direction = force.position - cannonAxis.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 cannonAxis.rotation = Quaternion.Lerp(Quaternion.Euler(new Vector3(0, 0, angle+rotation)),

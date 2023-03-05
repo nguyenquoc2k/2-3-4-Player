@@ -86,7 +86,7 @@ public class ShowResult : MonoBehaviour
     {
         ResetMap();
         if (ToggleGroupController.Instances != null && ToggleGroupController.Instances.gameMode3.isOn == true ||
-            SelectMapGameDemo.Instances.soccerGame == true)
+            SelectMapGameDemo.Instances.modeTimeAndScore == true)
         {
             HandleTime?.Invoke();
         }

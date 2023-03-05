@@ -86,6 +86,7 @@ public class AISoccerController : MonoBehaviour
             moveToBall = false;
         }
     }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

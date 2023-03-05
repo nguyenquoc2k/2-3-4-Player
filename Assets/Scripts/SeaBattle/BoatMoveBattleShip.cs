@@ -109,7 +109,8 @@ public class BoatMoveBattleShip : MonoBehaviour
 
     void ShipWreck()
     {
-        Joystick.gameObject.SetActive(false);
+        SeaBattleMap2Controller.Instances.SetInfoDeathPlayer(myIndex);
+        Joystick = null;
         //BattleSea.AudioManagerBattleSea.instance.Play(BattleSea.AudioManagerBattleSea.instance.hitShip);
         //GameManagerBattleSea2.instance.ShipWreck(myIndex);
         DShakePosition(Camera.main.transform, 0.2f, 1, 30, 40);
@@ -128,6 +129,7 @@ public class BoatMoveBattleShip : MonoBehaviour
         });
         DScale(transform, Vector3.one * 0.3f, 5, DG.Tweening.Ease.InSine);
     }
+    
 
     void DShakePosition(Transform mtranform, float duration, float strength, int vibrato, float randomNess,
         bool snapping = false, bool fadeout = true, System.Action action = null)

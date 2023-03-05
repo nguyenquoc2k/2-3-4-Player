@@ -11,7 +11,7 @@ public class SelectMapGameDemo : MonoBehaviour
     [SerializeField] private Transform parentCoreGame;
     [SerializeField] private GameObject uiInGame, laps,scoreAndTime;
     public string lastNameMap;
-    public bool soccerGame;
+    public bool modeTimeAndScore;
 
     private void Awake()
     {
@@ -20,11 +20,13 @@ public class SelectMapGameDemo : MonoBehaviour
 
     public void OnClickMap1()
     {
+        if (transform.GetComponent<SetGameModeSeaBattle>() != null) modeTimeAndScore = true;
         JoinGame(map1);
     }
 
     public void OnClickMap2()
     {
+        if (transform.GetComponent<SetGameModeSeaBattle>() != null) modeTimeAndScore = false;
         JoinGame(map2);
     }
 
@@ -35,7 +37,7 @@ public class SelectMapGameDemo : MonoBehaviour
 
     public void JoinGame(GameObject map)
     {
-        if (ToggleGroupController.Instances!=null &&ToggleGroupController.Instances.gameMode3.isOn == true|| soccerGame==true)
+        if (ToggleGroupController.Instances!=null &&ToggleGroupController.Instances.gameMode3.isOn == true|| modeTimeAndScore==true)
         {
             scoreAndTime?.SetActive(true);
         }

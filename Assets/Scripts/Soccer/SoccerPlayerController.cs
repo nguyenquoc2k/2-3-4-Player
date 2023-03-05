@@ -79,7 +79,7 @@ public class SoccerPlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-         if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("Ball"))
         {
             if (isMoving == false)
             {
@@ -130,7 +130,20 @@ public class SoccerPlayerController : MonoBehaviour
             other.transform.GetComponent<Rigidbody2D>().isKinematic = true;
             other.transform.GetComponent<CircleCollider2D>().isTrigger = true;
         }
+
+        if (other.gameObject.CompareTag("AreaLimited"))
+        {
+            other.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
     }
 
-   
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("AreaLimited"))
+        {
+            other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+    }
+
+    
 }

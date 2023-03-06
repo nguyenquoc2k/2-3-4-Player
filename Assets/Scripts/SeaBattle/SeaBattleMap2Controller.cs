@@ -34,18 +34,18 @@ public class SeaBattleMap2Controller : MonoBehaviour
             else if (button.gameObject.activeInHierarchy && button.transform.name == "FixedJoystick1")
             {
                 player2.transform.GetChild(0).AddComponent<BoatMoveBattleShip>();
-                Destroy(player2.transform.GetChild(0).GetComponent<AIBattleShip>());
+                Destroy(player2.transform.GetChild(0).GetComponent<AIBoatSeaBattle>());
             }
             else if (button.gameObject.activeInHierarchy && button.transform.name == "FixedJoystick2")
             {
                 player3.transform.GetChild(0).AddComponent<BoatMoveBattleShip>();
-                Destroy(player3.transform.GetChild(0).GetComponent<AIBattleShip>());
+                Destroy(player3.transform.GetChild(0).GetComponent<AIBoatSeaBattle>());
             }
 
             else if (button.gameObject.activeInHierarchy && button.transform.name == "FixedJoystick3")
             {
                 player4.transform.GetChild(0).AddComponent<BoatMoveBattleShip>();
-                Destroy(player4.transform.GetChild(0).GetComponent<AIBattleShip>());
+                Destroy(player4.transform.GetChild(0).GetComponent<AIBoatSeaBattle>());
             }
         }
     }

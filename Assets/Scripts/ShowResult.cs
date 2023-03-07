@@ -86,7 +86,7 @@ public class ShowResult : MonoBehaviour
     {
         ResetMap();
         if (ToggleGroupController.Instances != null && ToggleGroupController.Instances.gameMode3.isOn == true ||
-            SelectMapGameDemo.Instances.modeTimeAndScore == true)
+            SelectMapGameDemo.Instances.modeTimeAndScore == true || MapModeStickBall.Instances != null)
         {
             HandleTime?.Invoke();
         }
@@ -101,6 +101,7 @@ public class ShowResult : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
+
         if (selectMapGameDemo.lastNameMap == "Map1") Instantiate(map1, parentCoreGame);
         if (selectMapGameDemo.lastNameMap == "Map2") Instantiate(map2, parentCoreGame);
         if (selectMapGameDemo.lastNameMap == "Map3") Instantiate(map3, parentCoreGame);

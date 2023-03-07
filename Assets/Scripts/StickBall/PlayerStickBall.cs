@@ -74,7 +74,6 @@ public class PlayerStickBall : MonoBehaviour
 
     void ChangerDirection(bool buttonState)
     {
-        Debug.Log("Doi huong");
         direction *= -1;
     }
 

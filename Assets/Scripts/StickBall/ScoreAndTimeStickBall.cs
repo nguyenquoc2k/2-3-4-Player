@@ -96,7 +96,7 @@ public class ScoreAndTimeStickBall : MonoBehaviour
             listPlayerScore[1] = true;
             CheckAndShowReSultModeCountdown();
         }
-        else if(scorePlayer1 == 5 && MapModeStickBall.Instances.isCountdown == false)
+        else if(scorePlayer2 == 5 && MapModeStickBall.Instances.isCountdown == false)
         {
             CoreGameController.Instances.HandleShowResult("Player2", null);
         }
@@ -113,7 +113,7 @@ public class ScoreAndTimeStickBall : MonoBehaviour
             listPlayerScore[2] = true;
             CheckAndShowReSultModeCountdown();
         }
-        else if(scorePlayer1 == 5 && MapModeStickBall.Instances.isCountdown == false)
+        else if(scorePlayer3 == 5 && MapModeStickBall.Instances.isCountdown == false)
         {
             CoreGameController.Instances.HandleShowResult("Player3", null);
         }
@@ -130,7 +130,7 @@ public class ScoreAndTimeStickBall : MonoBehaviour
             listPlayerScore[3] = true;
             CheckAndShowReSultModeCountdown();
         }
-        else if(scorePlayer1 == 5 && MapModeStickBall.Instances.isCountdown == false)
+        else if(scorePlayer4 == 5 && MapModeStickBall.Instances.isCountdown == false)
         {
             CoreGameController.Instances.HandleShowResult("Player4", null);
         }
@@ -183,7 +183,5 @@ public class ScoreAndTimeStickBall : MonoBehaviour
         scorePlayer4Text.text = scorePlayer4.ToString();
     }
 
-    void Update()
-    {
-    }
+   
 }

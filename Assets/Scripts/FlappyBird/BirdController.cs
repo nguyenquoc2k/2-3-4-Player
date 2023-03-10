@@ -7,11 +7,12 @@ public class BirdController : MonoBehaviour
     //public Sprite[] sprites;
     // private int spriteIndex;
     public int indexPlayer;
-    public float strength = 5f;
-    public float gravity = -9.81f;
-    public float tilt = 5f;
-    public bool isFlyUp;
+    private float strength = 5f;
+    private float gravity = -9.81f;
+    private float tilt = 5f;
+    private bool isFlyUp;
     private Vector3 direction;
+    private bool isReverse;
 
     private void Awake()
     {
@@ -20,21 +21,30 @@ public class BirdController : MonoBehaviour
         {
             ReverseGravityController.ReversePlayer1 += ChangerDirection;
             indexPlayer = 0;
+            isReverse = false;
         }
         else if (transform.name == "Player2")
         {
             ReverseGravityController.ReversePlayer2 += ChangerDirection;
             indexPlayer = 1;
+            isReverse = true;
         }
         else if (transform.name == "Player3")
         {
             ReverseGravityController.ReversePlayer3 += ChangerDirection;
             indexPlayer = 2;
+            isReverse = true;
         }
         else if (transform.name == "Player4")
         {
             ReverseGravityController.ReversePlayer4 += ChangerDirection;
             indexPlayer = 3;
+            isReverse = false;
+        }
+
+        if (isReverse)
+        {
+            gravity = 9.81f;
         }
     }
 
@@ -60,7 +70,15 @@ public class BirdController : MonoBehaviour
     {
         if (isFlyUp == true)
         {
-            direction = Vector3.up * strength;
+            if (isReverse)
+            {
+                direction = Vector3.down * strength;
+            }
+            else
+            {
+                direction = Vector3.up * strength;
+            }
+
             isFlyUp = false;
         }
 
@@ -87,14 +105,5 @@ public class BirdController : MonoBehaviour
     //     }
     // }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-           Debug.Log("Die");
-        }
-        else if (other.gameObject.CompareTag("Scoring"))
-        {
-        }
-    }
+    
 }

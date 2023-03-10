@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6053768793515663630}
   - component: {fileID: 6053768793515663628}
   - component: {fileID: 6053768793515663631}
+  - component: {fileID: 7991946082232067116}
   m_Layer: 0
   m_Name: Bottom Pipe
   m_TagString: Obstacle
@@ -111,6 +112,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0833334, y: 6.6666665}
   m_EdgeRadius: 0
+--- !u!114 &7991946082232067116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053768793515663617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea51c5f994eea14195468d0dfc6606a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTop: 0
 --- !u!1 &6053768794093319262
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +136,7 @@ GameObject:
   - component: {fileID: 6053768794093319263}
   - component: {fileID: 6053768794093319261}
   - component: {fileID: 6053768794093319260}
+  - component: {fileID: 3874543480266460296}
   m_Layer: 0
   m_Name: Top Pipe
   m_TagString: Obstacle
@@ -222,6 +237,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0833334, y: 6.6666665}
   m_EdgeRadius: 0
+--- !u!114 &3874543480266460296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053768794093319262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea51c5f994eea14195468d0dfc6606a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTop: 1
 --- !u!1 &6053768794356161907
 GameObject:
   m_ObjectHideFlags: 0

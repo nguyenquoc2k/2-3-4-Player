@@ -23,6 +23,10 @@ TagManager:
   - GoalLine
   - AreaLimited
   - bullet
+  - ball
+  - Obstacle
+  - Scoring
+  - Hole
   layers:
   - Default
   - TransparentFX

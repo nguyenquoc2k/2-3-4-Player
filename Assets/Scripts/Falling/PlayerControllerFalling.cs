@@ -11,8 +11,7 @@ public class PlayerControllerFalling : MonoBehaviour
     public FixedJoystick FixedJoystick;
     private Vector2 lastMovement;
     private bool isMoving = false;
-    bool hasHitObstacle = false;
-    bool hasHitHole = false;
+
 
     void Awake()
     {
@@ -47,34 +46,67 @@ public class PlayerControllerFalling : MonoBehaviour
         CheckAndRemovePlayer();
     }
 
+    private Collider2D[] previousHitColliders;
+
     private void CheckAndRemovePlayer()
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(transform.position, 0.2f);
-        if (hitCollider!= null && hitCollider.CompareTag("Obstacle"))
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        if (!IsHitCollidersChanged(hitColliders))
         {
-            hasHitObstacle = true;
+            return;
+        }
+        //Debug.Log("CheckAndDestroy");
+        bool hasObstacle = false;
+        bool hasHole = false;
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Obstacle"))
+            {
+                hasObstacle = true;
+            }
+            else if (hitCollider.CompareTag("Hole"))
+            {
+                hasHole = true;
+            }
         }
 
-        if (hitCollider != null && hitCollider.CompareTag("Hole"))
-        {
-            hasHitHole = true;
-        }
-
-        if (hasHitHole && !hasHitObstacle)
+        if (hasHole && !hasObstacle)
         {
             Destroy(gameObject);
         }
+        // Lưu danh sách hitColliders để sử dụng so sánh lần tiếp theo
+        previousHitColliders = hitColliders;
         // Draw the circle in the Scene view
-        float radius = 0.2f;
+        float radius = 0.3f;
         int segments = 32;
         float angle = 0f;
         float angleStep = (2f * Mathf.PI) / segments;
-        for (int i = 0; i < segments; i++) {
+        for (int i = 0; i < segments; i++)
+        {
             Vector3 pos1 = transform.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
             angle += angleStep;
             Vector3 pos2 = transform.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
             Debug.DrawLine(pos1, pos2, Color.green);
         }
+    }
+
+    private bool IsHitCollidersChanged(Collider2D[] hitColliders)
+    {
+        // Nếu danh sách hitColliders chưa được khởi tạo hoặc có số lượng khác với lần trước
+        if (previousHitColliders == null || hitColliders.Length != previousHitColliders.Length)
+        {
+            return true;
+        } // So sánh các phần tử của hai danh sách hitColliders
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i] != previousHitColliders[i])
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void Movement()

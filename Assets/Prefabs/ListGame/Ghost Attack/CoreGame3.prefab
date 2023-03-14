@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391584430150262295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -158,11 +158,11 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.396
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.659
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.94
   m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -208,10 +208,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 45.785393
-  m_PointLightOuterAngle: 78.36458
-  m_PointLightInnerRadius: 1.03
-  m_PointLightOuterRadius: 2.5
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.57
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -895,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2758007099714827210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -917,11 +917,11 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.396
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.659
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.94
   m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -967,10 +967,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 45.785393
-  m_PointLightOuterAngle: 78.36458
-  m_PointLightInnerRadius: 1.03
-  m_PointLightOuterRadius: 2.5
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.57
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1657,7 +1657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4201876671995282820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1679,11 +1679,11 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.396
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.659
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.94
   m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -1729,10 +1729,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 45.785393
-  m_PointLightOuterAngle: 78.36458
-  m_PointLightInnerRadius: 1.03
-  m_PointLightOuterRadius: 2.5
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.57
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   - {x: 0.67656946, y: -0.6765694, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49332
+  m_InstanceId: 71166
 --- !u!1 &5803659300213470309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,7 +3687,6 @@ MonoBehaviour:
   Player4: {fileID: 4148517299568008169}
   listPlayer: []
   parentListPlayer: {fileID: 4563233749996492193}
-  showResultGameDemo: {fileID: 0}
   wallController: {fileID: 0}
 --- !u!1 &8180001303489933117
 GameObject:
@@ -3714,7 +3713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8180001303489933117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3736,11 +3735,11 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.396
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.659
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.94
   m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -3786,10 +3785,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 45.785393
-  m_PointLightOuterAngle: 78.36458
-  m_PointLightInnerRadius: 1.03
-  m_PointLightOuterRadius: 2.5
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.57
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

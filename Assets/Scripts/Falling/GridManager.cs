@@ -11,7 +11,7 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private Tile _tilePrefab;
 
-    private Dictionary<Vector2, Tile> _tiles = new Dictionary<Vector2, Tile>();
+    public Dictionary<Vector2, Tile> _tiles = new Dictionary<Vector2, Tile>();
     public List<Color> listColor = new List<Color>();
     public RandomColorFalling randomColorFalling;
     public Color defaultColor;
@@ -69,14 +69,12 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x - 2.25f, y - 3), Quaternion.identity);
+                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x - 4.25f, y - 3.5f), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
                 spawnedTile.transform.SetParent(transform);
                 spawnedTile.SetPosition(new Vector3(x - 2.25f, y - 3));
-                var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
+                //var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                 //spawnedTile.Init(isOffset);
-
-
                 _tiles[new Vector2(x, y)] = spawnedTile;
             }
         }
@@ -86,6 +84,7 @@ public class GridManager : MonoBehaviour
 
     public void ChangeTileColors()
     {
+        randomColorFalling.isSetColor = false;
         foreach (var tile in _tiles.Values)
         {
             int id = UnityEngine.Random.Range(0, listColor.Count);

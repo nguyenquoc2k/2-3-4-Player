@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerControllerFalling : MonoBehaviour
 {
+    public int indexPlayer;
     private float speed = 4.5f;
     private Rigidbody2D rb;
     Vector2 moveDirection;
@@ -20,18 +21,22 @@ public class PlayerControllerFalling : MonoBehaviour
         if (transform.name == "Player1")
         {
             FixedJoystick = parentTransform.GetChild(0).GetComponent<FixedJoystick>();
+            indexPlayer = 0;
         }
         else if (transform.name == "Player2")
         {
             FixedJoystick = parentTransform.GetChild(1).GetComponent<FixedJoystick>();
+            indexPlayer = 1;
         }
         else if (transform.name == "Player3")
         {
             FixedJoystick = parentTransform.GetChild(2).GetComponent<FixedJoystick>();
+            indexPlayer = 2;
         }
         else if (transform.name == "Player4")
         {
             FixedJoystick = parentTransform.GetChild(3).GetComponent<FixedJoystick>();
+            indexPlayer = 3;
         }
     }
 
@@ -51,11 +56,6 @@ public class PlayerControllerFalling : MonoBehaviour
     private void CheckAndRemovePlayer()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-        if (!IsHitCollidersChanged(hitColliders))
-        {
-            return;
-        }
-        //Debug.Log("CheckAndDestroy");
         bool hasObstacle = false;
         bool hasHole = false;
         foreach (Collider2D hitCollider in hitColliders)
@@ -72,6 +72,7 @@ public class PlayerControllerFalling : MonoBehaviour
 
         if (hasHole && !hasObstacle)
         {
+            MapFallingController.Instances.CheckPlayerDeath(indexPlayer);
             Destroy(gameObject);
         }
         // Lưu danh sách hitColliders để sử dụng so sánh lần tiếp theo
@@ -89,26 +90,6 @@ public class PlayerControllerFalling : MonoBehaviour
             Debug.DrawLine(pos1, pos2, Color.green);
         }
     }
-
-    private bool IsHitCollidersChanged(Collider2D[] hitColliders)
-    {
-        // Nếu danh sách hitColliders chưa được khởi tạo hoặc có số lượng khác với lần trước
-        if (previousHitColliders == null || hitColliders.Length != previousHitColliders.Length)
-        {
-            return true;
-        } // So sánh các phần tử của hai danh sách hitColliders
-
-        for (int i = 0; i < hitColliders.Length; i++)
-        {
-            if (hitColliders[i] != previousHitColliders[i])
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private void Movement()
     {
         rb.velocity = moveDirection * speed;

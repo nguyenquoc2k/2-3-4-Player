@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map1: {fileID: 8128346523203015836, guid: 0fde0fea282d9d847a898ef4fe0e5444, type: 3}
-  map2: {fileID: 8128346523203015836, guid: eaa91cc8e780c8c429f385fd1662f4c6, type: 3}
+  map2: {fileID: 0}
   map3: {fileID: 0}
   parentCoreGame: {fileID: 5725535850207332086}
   uiInGame: {fileID: 8181473830438420889}

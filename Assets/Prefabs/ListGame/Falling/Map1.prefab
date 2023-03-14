@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1560388304801025173}
   - component: {fileID: 5689764935918124122}
   - component: {fileID: 4121545986486718578}
+  - component: {fileID: 5039425654860145275}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Player
@@ -195,7 +196,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77934cae59621ed47aade72340837531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexPlayer: 0
   FixedJoystick: {fileID: 0}
+--- !u!114 &5039425654860145275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548328637933204921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565d7109ad5279d47b47078d78906ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexPlayer: 2
+  speed: 2
+  isRandomDir: 0
+  randomColorFalling: {fileID: 1456285077250452550}
+  gridManager: {fileID: 4383380795663054124}
 --- !u!1 &1616869494521219004
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +374,7 @@ GameObject:
   - component: {fileID: 393068111792246658}
   - component: {fileID: 2732744620162581474}
   - component: {fileID: 6418405687440133146}
+  - component: {fileID: 5558105706338717690}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player
@@ -427,7 +447,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77934cae59621ed47aade72340837531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexPlayer: 0
   FixedJoystick: {fileID: 0}
+--- !u!114 &5558105706338717690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854854090782451060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565d7109ad5279d47b47078d78906ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexPlayer: 0
+  speed: 3
+  isRandomDir: 0
+  randomColorFalling: {fileID: 1456285077250452550}
+  gridManager: {fileID: 4383380795663054124}
 --- !u!1 &1976429414496982492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8026401968329942321
 Transform:
   m_ObjectHideFlags: 0
@@ -1394,6 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77934cae59621ed47aade72340837531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexPlayer: 0
   FixedJoystick: {fileID: 0}
 --- !u!1 &6465400930681032864
 GameObject:
@@ -1518,6 +1557,7 @@ GameObject:
   - component: {fileID: 4789735360674684441}
   - component: {fileID: 2153389712124470895}
   - component: {fileID: 7456805842279375429}
+  - component: {fileID: 7551655522826447969}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -1590,7 +1630,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77934cae59621ed47aade72340837531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexPlayer: 0
   FixedJoystick: {fileID: 0}
+--- !u!114 &7551655522826447969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809433239284841243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565d7109ad5279d47b47078d78906ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexPlayer: 1
+  speed: 2
+  isRandomDir: 0
+  randomColorFalling: {fileID: 1456285077250452550}
+  gridManager: {fileID: 4383380795663054124}
 --- !u!1 &8128346523203015836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6336479239044741833}
   - component: {fileID: 4082971546823965888}
+  - component: {fileID: 3121703427715762920}
   m_Layer: 0
   m_Name: Map1
   m_TagString: Untagged
@@ -1640,6 +1699,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b412db3a7f53e4c8f8b7bd67e56cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3121703427715762920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128346523203015836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187e0872653317a4aaa8dcaa6e0645ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player2: {fileID: 7809433239284841243}
+  player3: {fileID: 1548328637933204921}
+  player4: {fileID: 1854854090782451060}
+  listCheckPlayer: 00000000
 --- !u!1 &8278652928842622909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1801,7 @@ MonoBehaviour:
   _rendererRight: {fileID: 1529938380391778953}
   gridManager: {fileID: 4383380795663054124}
   idColor: 0
+  isSetColor: 0
 --- !u!1 &8676258981957909941
 GameObject:
   m_ObjectHideFlags: 0
